@@ -5,6 +5,7 @@ import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
+import { nanoid } from 'nanoid'
 
 export default function ProductScreen(props) {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export default function ProductScreen(props) {
     }, [dispatch, productId]);
 
     const addToCartHandler = () => {
+        console.log(nanoid(11)) //=> "bdkjNOkq9PO"
         props.history.push(`/cart/${productId}?qty=${qty}`);
     };
 
@@ -92,6 +94,5 @@ export default function ProductScreen(props) {
                 </div >
             )}
         </div>
-
     )
 }
